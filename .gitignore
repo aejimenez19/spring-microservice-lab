@@ -1,0 +1,28 @@
+# Compiled output
+target/
+*.class
+*.jar
+*.war
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Maven
+logs/
+*.log
+*.tmp
+
+# Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar

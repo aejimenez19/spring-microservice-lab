@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Usamos Spring Boot Starter Parent como base global para gestionar versiones comunes -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.0</version>
+        <relativePath/>
+    </parent>
+
+    <!-- Datos de identificación de tu Proyecto Padre -->
+    <groupId>com.aejimenezdev</groupId>
+    <artifactId>eureka-service-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- IMPORTANTE: El empaquetado del padre SIEMPRE debe ser pom -->
+    <packaging>pom</packaging>
+
+    <name>eureka-service-demo-parent</name>
+    <description>Proyecto raíz multimodular para microservicios</description>
+
+    <!-- Definición de tus 3 módulos (Escribe los nombres exactos de tus carpetas) -->
+    <modules>
+        <module>EurekaServer</module>
+        <module>ServiceA</module>
+        <module>ServiceB</module>
+    </modules>
+
+    <!-- Configuración global de versiones de Java y Librerías -->
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>2025.1.2</spring-cloud.version>
+    </properties>
+
+    <!-- Control centralizado de versiones para Spring Cloud -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Construcción estándar compartida por todos los módulos -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
